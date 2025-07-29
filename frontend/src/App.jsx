@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [file, setFile] = useState(null);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-    setStatus('');
+    setStatus("");
   };
 
   const handleUpload = async () => {
@@ -19,11 +19,16 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://192.168.x.x:8000/upload/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
+      const res = await axios.post(
+        "http://192.168.29.148:8000/upload/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
-      });
+      );
+
       setStatus(`✅ Uploaded: ${res.data.filename}`);
     } catch (err) {
       setStatus("❌ Upload failed");
@@ -33,7 +38,9 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
       <div className="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">📤 File Uploader</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          📤 File Uploader
+        </h2>
 
         <input
           type="file"
@@ -54,11 +61,7 @@ function App() {
           Upload
         </button>
 
-        {status && (
-          <p className="mt-4 text-center text-sm">
-            {status}
-          </p>
-        )}
+        {status && <p className="mt-4 text-center text-sm">{status}</p>}
       </div>
     </div>
   );

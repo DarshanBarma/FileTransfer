@@ -22,3 +22,7 @@ frontend/*.ntvs*
 frontend/*.njsproj
 frontend/*.sln
 frontend/*.sw?
+
+backend/.venv
+backend/__pycache__
+backend/Uploads/
