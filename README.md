@@ -32,8 +32,8 @@ A simple file upload system built with **React (frontend)** and **FastAPI (backe
 ### Backend (FastAPI)
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
 pip install fastapi uvicorn python-multipart
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
